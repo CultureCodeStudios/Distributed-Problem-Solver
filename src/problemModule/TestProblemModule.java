@@ -47,6 +47,7 @@ public class TestProblemModule implements ProblemModule{
 
 	@Override
 	public void Solve() {
+		Result = new Integer[N][M];
 		for(int j = 0; j< N; j++){
 			for(int k = 0; k< M; k++){
 				Result[j][k] = A[j][k] + B[j][k];

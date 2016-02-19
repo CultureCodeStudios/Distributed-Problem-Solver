@@ -16,14 +16,16 @@ public class BotnetClient {
 	static Integer[][] TestA;
 	static Integer[][] TestB; //The second matrix
 	static Integer[][] TestResult; //The expected result from the grid
-	static Integer n = 10; 
-	static Integer m = 12;
+	static Integer n = 2; 
+	static Integer m = 3;
 	static String Host;
 	static int Port;
 
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
 		//TestProblemModule Task = new TestProblemModule(TestA, TestB, n, m);
-		ProblemModule Task = new TestProblemModule(getArray(n,m),getArray(n,m),n,m);
+		TestA = getTestArray(n,m);
+		TestB = getTestArray(n,m);
+		ProblemModule Task = new TestProblemModule(TestA,TestB,n,m);
 		TestResult = new Integer[n][m];
 		TestResult = (Integer[][]) Task.TestSolver();
 		ClientConnectionManger Client = new TestClientConnectionManager(null,9090);
@@ -41,14 +43,16 @@ public class BotnetClient {
 	
 	
 	
-	public static Integer[][] getArray(Integer n, Integer m){
+	public static Integer[][] getTestArray(Integer n, Integer m){
 		
 		Integer [][]array = new Integer[n][m];
-		Integer item = 0;
+		int item = 0;
+		Integer Item = 0;
 		for(int i=0;i<n;i++){
-			for(int k=0;i<k;k++){
+			for(int k=0;k<m;k++){
 			item = (int)(Math.random()*100); 
-			array[i][k] = item;
+			Item = (Integer) item;
+			array[i][k] = Item;
 			}
 		}
 		return array;
