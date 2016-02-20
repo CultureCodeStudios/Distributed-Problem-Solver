@@ -15,16 +15,16 @@ import problemModule.TestProblemModule;
 
 public class TestServerConnectionManager implements SingleThreadServerConnectionManager {
 	private Socket Client;
+	private ServerSocket Server;
 	private DataOutputStream DataOut;
 	private ObjectOutputStream obOut;
 	private DataInputStream DataIn;
 	private ObjectInputStream obIn;
 	
 	public TestServerConnectionManager(String host,int port) throws UnknownHostException, IOException{
-		ServerSocket Server = new ServerSocket(9090);
+		Server = new ServerSocket(9090);
 		Socket Client = Server.accept();
 		System.out.println("Client Connected");
-		
 		
 		DataOut = new DataOutputStream(Client.getOutputStream());
 		obOut = new ObjectOutputStream(DataOut);
@@ -39,6 +39,9 @@ public class TestServerConnectionManager implements SingleThreadServerConnection
 	public void writeObject(TestProblemModule task) throws IOException {obOut.writeObject(task);Client.shutdownOutput();}
 	@Override
 	public void close() throws IOException{Client.close();}
+	
+	@Override
+	public void ServerShutdown() throws IOException{Server.close();}
 
 	@Override
 	public void writeObject(ProblemModule task) throws IOException {

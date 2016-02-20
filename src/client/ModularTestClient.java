@@ -10,17 +10,18 @@ import problemModule.TestProblemModule;
 //Still only for matrix addition but way easier to run JUnit Tests with for testing different configurations.
 public class ModularTestClient {
 
-	static Integer[][] A;
-	static Integer[][] B; //The second matrix
-	static Integer[][] TestResult; //The expected result from the grid
-	static Integer N = 2; 
-	static Integer M = 3;
-	static String Host;
-	static int Port;
-	static boolean Success;
-	static ProblemModule tosend;
-	static Object recv;
-	static SingleThreadClientConnectionManager CCM;
+	private static Integer[][] A;
+	private static Integer[][] B; //The second matrix
+	private static Integer[][] TestResult; //The expected result from the grid
+	private static Integer N = 2; 
+	private static Integer M = 3;
+	private static String Host;
+	private static int Port;
+	private static boolean Success;
+	private static ProblemModule tosend;
+	private static Object recv;
+	private static SingleThreadClientConnectionManager CCM;
+	private static MultiThreadedClientconnectionManager MTCCM;
 
 	public ModularTestClient(){
 
@@ -45,6 +46,10 @@ public class ModularTestClient {
 		recv = CCM.readObject();
 		computeTestResult();
 		TEQ();
+	}
+	
+	public void MultiThreadStart(){
+		//TODO: Future/Stretch
 	}
 
 	//use this to test known working client config.
@@ -131,6 +136,15 @@ public class ModularTestClient {
 			}
 		}
 		return Matrix;
+	}
+
+	//adding Future MultiThreadedClient Support;
+	public static MultiThreadedClientconnectionManager getMTCCM() {
+		return MTCCM;
+	}
+
+	public static void setMTCCM(MultiThreadedClientconnectionManager mTCCM) {
+		MTCCM = mTCCM;
 	}
 }
 

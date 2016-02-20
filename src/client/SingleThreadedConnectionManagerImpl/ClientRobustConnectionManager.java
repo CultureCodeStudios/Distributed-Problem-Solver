@@ -22,7 +22,7 @@ public class ClientRobustConnectionManager implements SingleThreadClientConnecti
 	private ObjectInputStream obIn;
 	private int port,attempts,delay;
 	
-	
+	//UNTESTED
 	public ClientRobustConnectionManager(String host,int port,int att,int del) throws IOException, InterruptedException{
 		connect();
 		setupStreams();
@@ -45,8 +45,13 @@ public class ClientRobustConnectionManager implements SingleThreadClientConnecti
 	}
 
 	private void retryConnection() {
-		// TODO Auto-generated method stub
+		try {
+			Client = new Socket(InetAddress.getByName(null),9090);
+		} catch (UnknownHostException e) {
 		
+		} catch (IOException e) {
+		
+		}
 	}
 
 	private void setupStreams() throws IOException{

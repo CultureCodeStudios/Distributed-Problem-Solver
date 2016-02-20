@@ -14,7 +14,8 @@ public class GridTestServer {
 	
 	static String Host;
 	static int Port;
-
+	//Known to function, does not implement the Node functionality.
+	//Use to debug A new ProblemModule
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
 
 		//TestProblemModule Task = new TestProblemModule(TestA, TestA, m, m);
