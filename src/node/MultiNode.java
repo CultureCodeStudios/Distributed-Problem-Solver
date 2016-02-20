@@ -1,12 +1,6 @@
 package node;
 //MultiThreaded Node to simulate multiple hardware nodes.
-public class MultiNode implements NodeType{
+public class MultiNode{
 
-	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-		
-	}
-	
 
 }

@@ -61,26 +61,6 @@ public class TestProblemModule implements ProblemModule{
 		// TODO Auto-generated method stub
 	}
 	
-	private Integer[][] SubCpy(){
-		return null;
-	}
-
-	private void SetSubMStart(Integer m){
-		SubMStart = m;
-	}
-	
-	private void SetSubNStart(Integer n){
-		SubNStart = n;
-	}
-	
-	private void SetSubMEnd(Integer m){
-		SubMEnd = m;
-	}
-	
-	private void SetSubNEnd(Integer n){
-		SubNEnd = n;
-	}
-	
 	public Integer getID(){
 		return id;
 	}
@@ -113,4 +93,74 @@ public class TestProblemModule implements ProblemModule{
 		return Result;
 	}
 	*/
+
+
+	public Integer getSubNStart() {
+		return SubNStart;
+	}
+
+
+	public void setSubNStart(Integer subNStart) {
+		SubNStart = subNStart;
+	}
+
+
+	public Integer getSubMStart() {
+		return SubMStart;
+	}
+
+
+	public void setSubMStart(Integer subMStart) {
+		SubMStart = subMStart;
+	}
+
+
+	public boolean isSub() {
+		return sub;
+	}
+
+
+	public void setSub(boolean sub) {
+		this.sub = sub;
+	}
+
+
+	public boolean isGPUReady() {
+		return GPUReady;
+	}
+
+
+	public void setGPUReady(boolean gPUReady) {
+		GPUReady = gPUReady;
+	}
+
+
+	public Integer getSubNEnd() {
+		return SubNEnd;
+	}
+
+
+	public void setSubNEnd(Integer subNEnd) {
+		SubNEnd = subNEnd;
+	}
+
+
+	public Integer getSubMEnd() {
+		return SubMEnd;
+	}
+
+
+	public void setSubMEnd(Integer subMEnd) {
+		SubMEnd = subMEnd;
+	}
+
+
+	public Integer getSubCount() {
+		return SubCount;
+	}
+
+
+	public void setSubCount(Integer subCount) {
+		SubCount = subCount;
+	}
 }
