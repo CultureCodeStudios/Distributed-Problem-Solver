@@ -1,5 +1,5 @@
 package node;
 
-public interface NodeType {
+public interface NodeType extends Runnable {
 
 }

@@ -8,14 +8,10 @@ import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import problemModule.TestProblemModule;
+import problemModule.*;
 
 public class GridServer {
-	static Integer[][] TestA;
-	static Integer[][] TestB;
-	static Integer[][] TestResult;
-	static Integer n;
-	static Integer m;
+	
 	static String Host;
 	static int Port;
 
@@ -30,13 +26,11 @@ public class GridServer {
 		DataInputStream DataIn = new DataInputStream(Client.getInputStream());
 		ObjectInputStream obIn = new ObjectInputStream(DataIn);
 		
-
 		Object RecievedObj = obIn.readObject();
 		System.out.println("Object Recieved");
 		Client.shutdownInput();
-		if(RecievedObj instanceof TestProblemModule){
-			TestProblemModule Task = (TestProblemModule) RecievedObj;
-			//Integer[][] Result = Returned.getResult();
+		if(RecievedObj instanceof ProblemModule){
+			ProblemModule Task = (ProblemModule) RecievedObj;
 			Task.Solve();
 			obOut.writeObject(Task);
 		}

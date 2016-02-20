@@ -11,6 +11,7 @@ public class TestProblemModule implements ProblemModule{
 	private Integer N,M,SubNStart,SubMStart,SubNEnd,SubMEnd,SubCount; //Sub's are for their position in the parent array.SubCount is to make sure all the subproblems are returned.
 	private Integer[][] A,B;
 	private Integer[][] Result;
+	private boolean GPUReady=false;
 	
 
 	public TestProblemModule(Integer[][] a,Integer[][] b,Integer n,Integer m){
@@ -58,7 +59,6 @@ public class TestProblemModule implements ProblemModule{
 	@Override
 	public void finalize(ProblemModule[] subproblems) {
 		// TODO Auto-generated method stub
-		
 	}
 	
 	private Integer[][] SubCpy(){
