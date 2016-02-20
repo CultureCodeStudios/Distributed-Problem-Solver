@@ -9,10 +9,10 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-import client.SingleThreadClientConnectionManger;
+import client.SingleThreadClientConnectionManager;
 import problemModule.*;
 
-public class TestClientConnectionManager implements SingleThreadClientConnectionManger{
+public class TestClientConnectionManager implements SingleThreadClientConnectionManager{
 		private Socket Client;
 		private DataOutputStream DataOut;
 		private ObjectOutputStream obOut;

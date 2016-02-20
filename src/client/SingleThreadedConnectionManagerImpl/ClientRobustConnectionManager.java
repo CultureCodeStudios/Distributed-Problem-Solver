@@ -5,23 +5,51 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.net.ConnectException;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-import client.SingleThreadClientConnectionManger;
+import client.SingleThreadClientConnectionManager;
 import problemModule.ProblemModule;
 import problemModule.TestProblemModule;
 
-public class ClientRobustConnectionManager implements SingleThreadClientConnectionManger{
+public class ClientRobustConnectionManager implements SingleThreadClientConnectionManager{
 	private Socket Client;
 	private DataOutputStream DataOut;
 	private ObjectOutputStream obOut;
 	private DataInputStream DataIn;
 	private ObjectInputStream obIn;
+	private int port,attempts,delay;
 	
-	public ClientRobustConnectionManager(String host,int port,int Attempts,int delay) throws UnknownHostException, IOException{
-		Client = new Socket(InetAddress.getByName(null),9090);
+	
+	public ClientRobustConnectionManager(String host,int port,int att,int del) throws IOException, InterruptedException{
+		connect();
+		setupStreams();
+	}
+	
+	private void connect() throws InterruptedException {
+		try {
+			Client = new Socket(InetAddress.getByName(null),9090);
+			if(Client==null){
+				for(int i = 0; i<attempts;i++){
+					Thread.sleep(delay);
+					retryConnection();
+					}
+			}
+		} catch (ConnectException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void retryConnection() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void setupStreams() throws IOException{
 		System.out.println("Connected");
 		DataOut = new DataOutputStream(Client.getOutputStream());
 		obOut = new ObjectOutputStream(DataOut);
@@ -37,5 +65,21 @@ public class ClientRobustConnectionManager implements SingleThreadClientConnecti
 	@Override
 	public void writeObject(ProblemModule task) throws IOException {
 		obOut.writeObject(task);Client.shutdownOutput();
+	}
+
+	public int getPort() {
+		return port;
+	}
+
+	public void setPort(int port) {
+		this.port = port;
+	}
+
+	public int getAttempts() {
+		return attempts;
+	}
+
+	public void setAttempts(int attempts) {
+		this.attempts = attempts;
 	}
 }
