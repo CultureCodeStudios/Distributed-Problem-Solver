@@ -13,7 +13,7 @@ import java.net.UnknownHostException;
 import client.SingleThreadClientConnectionManager;
 import problemModule.ProblemModule;
 import problemModule.TestProblemModule;
-
+//TODO: Needs work, I started it but didn't finish it.
 public class ClientRobustConnectionManager implements SingleThreadClientConnectionManager{
 	private Socket Client;
 	private DataOutputStream DataOut;
@@ -86,5 +86,11 @@ public class ClientRobustConnectionManager implements SingleThreadClientConnecti
 
 	public void setAttempts(int attempts) {
 		this.attempts = attempts;
+	}
+
+	@Override
+	public ProblemModule waitForResult() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

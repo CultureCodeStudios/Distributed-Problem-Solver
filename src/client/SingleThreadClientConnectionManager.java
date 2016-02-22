@@ -9,5 +9,5 @@ public interface SingleThreadClientConnectionManager {
 	public void close()throws IOException;
 	public Object readObject() throws ClassNotFoundException, IOException ;
 	public void writeObject(ProblemModule task)throws IOException;
-
+	public ProblemModule waitForResult() throws ClassNotFoundException, IOException;
 }

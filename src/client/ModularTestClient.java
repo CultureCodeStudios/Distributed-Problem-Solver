@@ -47,7 +47,7 @@ public class ModularTestClient {
 		computeTestResult();
 		TEQ();
 	}
-	
+
 	public void MultiThreadStart(){
 		//TODO: Future/Stretch
 	}
@@ -58,7 +58,7 @@ public class ModularTestClient {
 		packProblemModule();
 		setSingleThreadClientConnectionManager(new TestClientConnectionManager(host,port));
 		CCM.writeObject(tosend);
-		recv = CCM.readObject();
+		recv = CCM.waitForResult();
 		computeTestResult();
 		TEQ();
 	}
@@ -86,13 +86,13 @@ public class ModularTestClient {
 	public void setHost(String host){Host=host;}
 	public void setPort(int port){Port=port;}
 	public void setProblemModule(ProblemModule p){tosend = p;}
-	
+
 	//Utility
 	public void computeTestResult(){
 		TestResult = new Integer[N][M];
 		TestResult = (Integer[][]) tosend.TestSolver(); 
 	}
-	
+
 	public void packProblemModule(){
 		tosend = new TestProblemModule(A,B,N,M);
 	}

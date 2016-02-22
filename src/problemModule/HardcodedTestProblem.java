@@ -2,22 +2,23 @@ package problemModule;
 
 import java.util.Arrays;
 
-//This is the Base ProblemModule
-public class TestProblemModule implements ProblemModule{
+public class HardcodedTestProblem implements ProblemModule{
 
+	
 	private static final long serialVersionUID = 1L;
 	private Integer id = 0;
 	private boolean sub = false;//just for testing
-	private Integer N,M,SubNStart,SubMStart,SubNEnd,SubMEnd,SubCount; //Sub's are for their position in the parent array.SubCount is to make sure all the subproblems are returned.
-	private Integer[][] A,B;
+	private Integer SubNStart,SubMStart,SubNEnd,SubMEnd,SubCount; //Sub's are for their position in the parent array.SubCount is to make sure all the subproblems are returned.
+	//private Integer[][] A,B;
+	static Integer[][] A = {{1,2,3},{7,8,9}}; //The first matrix 
+	static Integer[][] B = {{5,6,7},{3,4,5}}; //The second matrix
 	private Integer[][] Result;
+	Integer N = 2;
+	Integer M = 3;
 	private boolean GPUReady=false;
 	
 
-	public TestProblemModule(Integer[][] a,Integer[][] b,Integer n,Integer m){
-		A=a;B=b;N=n;M=m;
-	}
-	
+	public HardcodedTestProblem(){}
 	
 	@Override
 	public ProblemModule[] breakDown(Integer nodes){
@@ -55,6 +56,18 @@ public class TestProblemModule implements ProblemModule{
 			}
 		}
 	}
+	
+	@Override
+	public void DelaySolve() throws InterruptedException {
+		Result = new Integer[N][M];
+		for(int j = 0; j< N; j++){
+			for(int k = 0; k< M; k++){
+				Result[j][k] = A[j][k] + B[j][k];
+			}
+		}
+		Thread.sleep(1000*10);
+	}
+
 
 	@Override
 	public void finalize(ProblemModule[] subproblems) {
@@ -68,6 +81,7 @@ public class TestProblemModule implements ProblemModule{
 	public void setID(Integer i){
 		id = i;
 	}
+	
 	/* Deprecated with the internalization of the Problem Specific Methods.
 	public Integer[][] getMatrixA(){
 		return A;
@@ -162,12 +176,5 @@ public class TestProblemModule implements ProblemModule{
 
 	public void setSubCount(Integer subCount) {
 		SubCount = subCount;
-	}
-
-
-	@Override
-	public void DelaySolve() throws InterruptedException {
-		// TODO Auto-generated method stub
-		
 	}
 }

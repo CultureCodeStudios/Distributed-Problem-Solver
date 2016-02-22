@@ -9,4 +9,5 @@ public interface ProblemModule extends Serializable{
 		//Testing Methods
 		public Object TestSolver();
 		public boolean TEQ(Object o);
+		void DelaySolve() throws InterruptedException;
 	}
