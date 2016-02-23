@@ -45,7 +45,7 @@ public class TestNode implements NodeType {
 		Object recv;
 		Future<Object> rec = null;
 		Future<ProblemModule> PM = null;
-		InputService IS = new InputService(obIn);
+		//InputService IS = new InputService(obIn);
 		rec = Solver.submit(new InputService(obIn));
  		while(Ready){
 			if(rec.isCancelled()){

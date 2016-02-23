@@ -4,12 +4,12 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import server.ServerConnectionManager;
 import server.ServerConnectionImpl.MultiThreadedServerConnectionManager;
 
+//TODO: needs testing to make sure we can use this stays relevant. Some of the logic may need to change based off our architecture changes.
 public class ModularTestServer {
 
 	private static String Host;

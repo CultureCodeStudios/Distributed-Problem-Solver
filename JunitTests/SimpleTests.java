@@ -8,6 +8,7 @@ import org.junit.Test;
 import client.ModularTestClient;
 
 public class SimpleTests {
+	//TODO: this should be a series of JUnit tests that test the very basic aspects of the system to make sure changes don't break the basics.
 
 	@Test
 	public void DefaultConfigTest() throws UnknownHostException, IOException, ClassNotFoundException {

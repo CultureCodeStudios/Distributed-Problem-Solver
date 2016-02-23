@@ -8,7 +8,6 @@ import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import common.KeepAlive;
 import common.Packets;
 import common.Status;
 import problemModule.HardcodedTestProblem;
@@ -49,6 +48,7 @@ public class NodeTestServer {
 		while(waiting){
 			if((recv = obIn.readObject()) instanceof ProblemModule){
 				waiting = false;
+				//TODO: add a check to Verify the result in PM
 				ProblemModule PM = (ProblemModule) recv;
 				System.out.println("PM recieved");
 			}else if(recv instanceof Packets){
@@ -62,7 +62,7 @@ public class NodeTestServer {
 			if((recv instanceof Status)){
 				System.out.println("ResetStatus = "+ ((Status) recv).getStatus());
 			}
-			
+			Server.close();
 		}
 	}
 }

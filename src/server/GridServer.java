@@ -7,7 +7,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import server.ServerConnectionImpl.MultiThreadedServerConnectionManager;
-import superClass.Server;
+
 
 public class GridServer {
 
@@ -24,7 +24,7 @@ public class GridServer {
 		Running = true;
 		while(Running){
 			Socket newCon = Server.accept();
-		//	ConnectionServicer.submit(SCM.newCon(newCon);
+			ConnectionServicer.submit(SCM.newCon(newCon));
 		}
 	}
 

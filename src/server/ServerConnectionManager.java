@@ -2,7 +2,6 @@ package server;
 
 import java.io.IOException;
 import java.net.Socket;
-import java.util.concurrent.Callable;
 
 //ServerConnectionManager
 public interface ServerConnectionManager {

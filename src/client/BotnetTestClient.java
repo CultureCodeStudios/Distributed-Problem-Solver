@@ -3,7 +3,8 @@ import java.io.IOException;
 
 import client.SingleThreadedConnectionManagerImpl.TestClientConnectionManager;
 import problemModule.*;
-/*
+/**
+ * Deprecated: but remaining for reference.
  * This is just the most basic of clients just to test the concept of the grid and the Problem Module.
  * I am replacing this with the ModularTestClient so we can quickly and easily run JUnit Tests.
  * Use the ModularTestClient for running tests.
@@ -15,7 +16,7 @@ public class BotnetTestClient {
 	 * static Integer[][] TestB = {{5,6,7},{3,4,5}}; //The second matrix
 	 * static Integer[][] TestResult = {{6,8,10},{10,12,14}}; //The expected result from the grid	 *
 	 */
-
+	
 	static Integer[][] TestA; // The first matrix
 	static Integer[][] TestB; // The second matrix
 	static Integer[][] TestResult; // The expected result from the grid
